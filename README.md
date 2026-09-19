@@ -139,3 +139,7 @@ Learning Kafka involves understanding these concepts and components, working wit
 
 
 
+
+## Production readiness
+
+Before using this sample in a real system, review the [Kafka production checklist](docs/production-checklist.md). It covers delivery guarantees, retries, dead-letter topics, monitoring, security, and incident triage.
