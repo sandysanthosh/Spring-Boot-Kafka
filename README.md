@@ -17,7 +17,6 @@
 
 ```
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Component;
 
@@ -25,9 +24,11 @@ import org.springframework.stereotype.Component;
 public class KafkaProducer {
 
     private static final String TOPIC = "my-topic";
+    private final KafkaTemplate<String, String> kafkaTemplate;
 
-    @Autowired
-    private KafkaTemplate<String, String> kafkaTemplate;
+    public KafkaProducer(KafkaTemplate<String, String> kafkaTemplate) {
+        this.kafkaTemplate = kafkaTemplate;
+    }
 
     public void sendMessage(String message) {
         kafkaTemplate.send(TOPIC, message);
